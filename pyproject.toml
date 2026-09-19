@@ -1,0 +1,16 @@
+[project]
+name = "shadow4-scripting-tutorial"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "h5py>=3.16.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "shadow4>=0.1.92",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "jupyter>=1.1.1",
+]
