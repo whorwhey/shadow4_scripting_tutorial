@@ -90,7 +90,7 @@ def run_beamline():
             
     from shadow4.beamline.optical_elements.mirrors.s4_numerical_mesh_mirror import S4NumericalMeshMirror
     optical_element = S4NumericalMeshMirror(name='Numerical Mesh Mirror', boundary_shape=boundary_shape,
-        xx=None, yy=None, zz=None, surface_data_file='/Users/francisho/Projects_local/beamline_sim/data/oasys_generated/shadow4_COSMIC-U_M3_AXO_DLTP_Resid_4thOrderRemoved_IntResidHeight.h5',
+        xx=None, yy=None, zz=None, surface_data_file='/Users/francisho/Oasys2/../Projects_local/beamline_sim/data/oasys_generated/shadow4_COSMIC-U_M3_AXO_DLTP_Resid_4thOrderRemoved_IntResidHeight.h5',
         f_reflec=0, # reflectivity of surface: 0=no reflectivity, 1=full polarization
         f_refl=0, # for f_reflec=1: file: 0=prerefl, 2=(mrad, refl), 3=(eV, refl), 4=(eV, mrad, refl); 1=refr index, 5=xraylib, 6=dabax
         file_refl='', # for f_refl=0,2,3,4
@@ -107,7 +107,7 @@ def run_beamline():
     optical_element = S4AdditionalNumericalMeshMirror(name='Elliptical Mirror H (y = 26.301 m, p = 26.301 m, q = 5.573 m)', ideal_mirror=ideal_mirror, numerical_mesh_mirror=numerical_mesh_mirror)
         
     from syned.beamline.element_coordinates import ElementCoordinates
-    coordinates = ElementCoordinates(p=-5.573, q=5.573, angle_radial=1.548979711, angle_azimuthal=1.570796327, angle_radial_out=1.548979711)
+    coordinates = ElementCoordinates(p=-5.573, q=5.573, angle_radial=1.548979711, angle_azimuthal=4.71238898, angle_radial_out=1.548979711)
     movements = None
     from shadow4.beamline.optical_elements.mirrors.s4_additional_numerical_mesh_mirror import S4AdditionalNumericalMeshMirrorElement
     beamline_element = S4AdditionalNumericalMeshMirrorElement(optical_element=optical_element, coordinates=coordinates, movements=movements, input_beam=beam)
@@ -126,7 +126,7 @@ from srxraylib.plot.gol import plot, plot_image, plot_image_with_histograms, plo
 beam, footprint = run_beamline()
 beam.retrace(0.000000)
 
-ticket = beam.histo2(1, 3, nbins_h=100, nbins_v=100, xrange=[np.float64(-1.82085631615595e-05), np.float64(1.68020325871322e-05)], yrange=[np.float64(-2.112760046229389e-05), np.float64(2.076283483649384e-05)], nolost=1, ref=23)
+ticket = beam.histo2(1, 3, nbins_h=100, nbins_v=100, xrange=[np.float64(-1.680199711291622e-05), np.float64(1.8205081784753407e-05)], yrange=[np.float64(-2.044560335860053e-05), np.float64(2.1023667982123877e-05)], nolost=1, ref=23)
 
 title = "I: %.1f " % ticket['intensity']
 if ticket['fwhm_h'] is not None: title += "FWHM H: %f " % ticket['fwhm_h']

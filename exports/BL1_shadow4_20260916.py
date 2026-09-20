@@ -42,7 +42,7 @@ def run_beamline():
         )
     
     from syned.beamline.element_coordinates import ElementCoordinates
-    coordinates = ElementCoordinates(p=26.301, q=5.573, angle_radial=1.548979711, angle_azimuthal=0, angle_radial_out=1.548979711)
+    coordinates = ElementCoordinates(p=26.301, q=5.573, angle_radial=1.548979711, angle_azimuthal=1.570796327, angle_radial_out=1.548979711)
     movements = None
     from shadow4.beamline.optical_elements.mirrors.s4_ellipsoid_mirror import S4EllipsoidMirrorElement
     beamline_element = S4EllipsoidMirrorElement(optical_element=optical_element, coordinates=coordinates, movements=movements, input_beam=beam)
@@ -61,7 +61,7 @@ from srxraylib.plot.gol import plot, plot_image, plot_image_with_histograms, plo
 beam, footprint = run_beamline()
 beam.retrace(0.000000)
 
-ticket = beam.histo2(1, 3, nbins_h=100, nbins_v=100, xrange=[np.float64(-0.0023337523150165195), np.float64(0.002685588343437824)], yrange=[np.float64(-1.9505753580096484e-05), np.float64(1.7985667827954387e-05)], nolost=1, ref=23)
+ticket = beam.histo2(1, 3, nbins_h=100, nbins_v=100, xrange=[np.float64(-0.00237638116933474), np.float64(0.0023850778185146846)], yrange=[np.float64(-1.4223495452003843e-05), np.float64(1.5033730127709975e-05)], nolost=1, ref=23)
 
 title = "I: %.1f " % ticket['intensity']
 if ticket['fwhm_h'] is not None: title += "FWHM H: %f " % ticket['fwhm_h']
